@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from 'react'
+import ConfigurationContext from './context/ConfigurationContext'
+import ConfigurationController from './components/ConfigurationController'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import Layout from './components/Layout'
+
+import './App.css'
+
+class App extends Component {
+  state = {showContent: true, showLeftNavbar: true, showRightNavbar: true}
+
+  onToggleShowContent = () => {
+    this.setState(prevState => ({showContent: !prevState.showContent}))
+  }
+
+  onToggleShowLeftNavbar = () => {
+    this.setState(prevState => ({
+      showLeftNavbar: !prevState.showLeftNavbar,
+    }))
+  }
+
+  onToggleShowRightNavbar = () => {
+    this.setState(prevState => ({
+      showRightNavbar: !prevState.showRightNavbar,
+    }))
+  }
+
+  render() {
+    const {showContent, showLeftNavbar, showRightNavbar} = this.state
+    return (
+      <div>
+        <ConfigurationContext.Provider
+          value={{
+            showContent,
+            showLeftNavbar,
+            showRightNavbar,
+            onToggleShowContent: this.onToggleShowContent,
+            onToggleShowLeftNavbar: this.onToggleShowLeftNavbar,
+            onToggleShowRightNavbar: this.onToggleShowRightNavbar,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <ConfigurationController />
+          <Layout />
+        </ConfigurationContext.Provider>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

@@ -1,0 +1,27 @@
+.bg-header {
+    background-color: #475569;
+    height: 25vh;
+    padding-top: 15px;
+    padding-left: 40px;
+  }
+  
+  .heading-header {
+    color: #ffffff;
+  }
+  
+  .form-container {
+    color: #ffffff;
+  }
+  
+  .input {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .label {
+    font-size: 17px;
+    cursor: pointer;
+  }
