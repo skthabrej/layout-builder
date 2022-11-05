@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import ConfigurationContext from './context/ConfigurationContext'
 import ConfigurationController from './components/ConfigurationController'
-
 import Layout from './components/Layout'
 
 import './App.css'
